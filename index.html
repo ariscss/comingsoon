@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon Pelita Pratama</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <img src="logo-pkbm-300x300.png" alt="logo" class="logo">
+        <h1>Pelita Pratama</h1>
+        <h2>Kami Segera Hadir.</h2>
+        
+        <div class="count">
+            <div class="countd">
+                <span id="days">00</span>
+                HARI
+            </div>
+            <div class="countd">
+                <span id="hours">00</span>
+                JAM
+            </div>
+            <div class="countd">
+                <span id="minutes">00</span>
+                MENIT
+            </div>
+            <div class="countd">
+                <span id="seconds">00</span>
+                DETIK
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+
+        var count = new Date("08/19/2020 00:00:00").getTime();
+        var x = setInterval(function(){
+            var now = new Date().getTime();
+            var d = count - now;
+
+            var days = Math.floor(d/(1000*60*60*24));
+            var hours = Math.floor((d%(1000*60*60*24))/(1000*60*60));
+            var minutes = Math.floor((d%(1000*60*60))/(1000*60));
+            var seconds = Math.floor((d%(1000*60))/(1000));
+            
+            document.getElementById("days").innerHTML = days;
+            document.getElementById("hours").innerHTML = hours;
+            document.getElementById("minutes").innerHTML = minutes;
+            document.getElementById("seconds").innerHTML = seconds;
+
+            if (d <= 0) {
+                clearInterval(x);
+            }
+
+        },1000);
+
+    </script>
+</body>
+</html>
